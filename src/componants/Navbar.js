@@ -38,21 +38,67 @@ export default function Navbar(props) {
             </ul>
           </div>
           <div className="d-flex">
-             <div className="bg-secondary rounded mx-2" style={{height:'30px',width:'30px',cursor:'pointer'}} onClick={()=>{props.toggleMode('secondary')}}></div>
-             <div className="bg-warning rounded mx-2" style={{height:'30px',width:'30px',cursor:'pointer'}} onClick={()=>{props.toggleMode('warning')}}></div>
-             <div className="bg-success rounded mx-2" style={{height:'30px',width:'30px',cursor:'pointer'}} onClick={()=>{props.toggleMode('success')}}></div>
-             <div className="bg-light rounded mx-2" style={{height:'30px',width:'30px',cursor:'pointer',border:'2px solid black'}} onClick={()=>{props.toggleMode('light')}}></div>
-             <div className="bg-dark rounded mx-2" style={{height:'30px',width:'30px',cursor:'pointer',border:'2px solid white'}} onClick={()=>{props.toggleMode('#0f1f37')}}></div>
+            <div
+              className="bg-secondary rounded mx-2"
+              style={{ height: "30px", width: "30px", cursor: "pointer" }}
+              onClick={() => {
+                props.toggleMode("secondary");
+              }}
+            ></div>
+            <div
+              className="bg-warning rounded mx-2"
+              style={{ height: "30px", width: "30px", cursor: "pointer" }}
+              onClick={() => {
+                props.toggleMode("warning");
+              }}
+            ></div>
+            <div
+              className="bg-success rounded mx-2"
+              style={{ height: "30px", width: "30px", cursor: "pointer" }}
+              onClick={() => {
+                props.toggleMode("success");
+              }}
+            ></div>
+            <div
+              className="bg-light rounded mx-2"
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                border: "2px solid black",
+              }}
+              onClick={() => {
+                props.toggleMode("light");
+              }}
+            ></div>
+            <div
+              className="bg-dark rounded mx-2"
+              style={{
+                height: "30px",
+                width: "30px",
+                cursor: "pointer",
+                border: "2px solid white",
+              }}
+              onClick={() => {
+                props.toggleMode("#0f1f37");
+              }}
+            ></div>
           </div>
 
-              <div className={`form-check form-switch text-${props.mode === "dark" ? "light" : "dark"}`}>
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "dark" ? "light" : "dark"
+            }`}
+          >
             <input
               className="form-check-input"
               type="checkbox"
               role="switch"
               id="mychack"
-              onClick={()=>{props.toggleMode(null)}}
-            /> 
+              onClick={() => {
+                props.toggleMode(null);
+              }}
+            />
             <label className="form-check-label" htmlFor="mychack">
               Enable DarkMode
             </label>
@@ -72,8 +118,6 @@ Navbar.defaultProps = {
   title: "Set Title Here",
   about: "About us",
 };
-
-          
 
 // function Navbar(params) {
 //   return (

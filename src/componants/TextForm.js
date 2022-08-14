@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-
 export default function TextForm(props) {
   const [text, setText] = useState("");
- 
 
   const handleonchange = (e) => {
-    // console.log("on change");
+    // console.log(e.target.value);
     setText(e.target.value);
   };
 
@@ -15,26 +13,25 @@ export default function TextForm(props) {
     // console.log("iiiiiiii" + text);
     const newText = text.toUpperCase();
     setText(newText);
-    props.showalert("converted to Uppercase","success");
+    props.showalert("converted to Uppercase", "success");
     // props.setAlert("converted to Uppercase","success");
   };
 
   const handleLoclick = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showalert("converted to Lowercase","success");
+    props.showalert("converted to Lowercase", "success");
   };
   const handleclear = () => {
     const newText = "";
     setText(newText);
-    props.showalert("Cleared text","success");
+    props.showalert("Cleared text", "success");
   };
   const handlecapi = () => {
     const newText = text.toLowerCase();
-    const setnew=newText.charAt(0).toUpperCase() + newText.slice(1);
+    const setnew = newText.charAt(0).toUpperCase() + newText.slice(1);
     setText(setnew);
-    props.showalert("converted to Capitlize","success");
-    
+    props.showalert("converted to Capitlize", "success");
   };
   return (
     <>
@@ -55,19 +52,34 @@ export default function TextForm(props) {
             onChange={handleonchange}
           ></textarea>
         </div>
-        <button disabled={text.length===0}    className="btn btn-primary mx-2 my-2" onClick={handleupclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleupclick}
+        >
           convert to uppercase
         </button>
-        <button  disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleLoclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleLoclick}
+        >
           convert to Lowercase
         </button>
-        <button  disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlecapi}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handlecapi}
+        >
           convert to Capitlize
         </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleclear}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleclear}
+        >
           clear the text
         </button>
-        
       </div>
 
       <div
@@ -76,9 +88,21 @@ export default function TextForm(props) {
       >
         <h3> Your summary</h3>
         <p>
-          {text.split(/\s+/).filter((element)=> {return element.length!==0}).length} Words and {text.length} Character
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          Words and {text.length} Character
         </p>
-        <p> {0.008 * (text.split(" ").filter((element)=> {return element.length!==0}).length)} Minutes to read word </p>
+        <p>
+          {" "}
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes to read word{" "}
+        </p>
         <h3> Preview</h3>
         <p>{text.length > 0 ? text : "Nothing is preview"}</p>
       </div>

@@ -93,9 +93,11 @@ function App() {
               />
             }
           ></Route>
-          <Route exact path="/about" element={<About mode={darkMode} />}>
-            {" "}
-          </Route>
+          <Route
+            exact
+            path="/about"
+            element={<About mode={darkMode} />}
+          ></Route>
         </Routes>
       </Router>
     </>
